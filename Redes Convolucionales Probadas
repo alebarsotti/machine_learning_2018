@@ -1,0 +1,123 @@
+cnn_model = Sequential([
+    Convolution2D(20, (4, 4), activation='relu', input_shape=(PICTURE_SIZE, PICTURE_SIZE, len(CHANNELS)),),
+    Dropout(0.25),
+    
+    Convolution2D(10, (4, 4), activation='relu'),
+    Dropout(0.25),
+    
+    MaxPooling2D(pool_size=(4, 4)),
+    Dropout(0.25),
+    
+    Flatten(),
+    
+    Dense(250, activation='relu'),
+    Dropout(0.25),
+    
+    Dense(100, activation='relu'),
+    Dropout(0.25),
+    
+    Dense(len(FRUITS), activation='softmax'),
+])
+
+batch_size=256
+epochs=5
+
+Train on 31688 samples, validate on 5328 samples
+Epoch 1/5
+31688/31688 [==============================] - 28s 870us/step - loss: 3.1840 - acc: 0.1759 - val_loss: 1.5220 - val_acc: 0.6843
+Epoch 2/5
+31688/31688 [==============================] - 22s 709us/step - loss: 0.9907 - acc: 0.6807 - val_loss: 0.5142 - val_acc: 0.8797
+Epoch 3/5
+31688/31688 [==============================] - 22s 709us/step - loss: 0.4868 - acc: 0.8384 - val_loss: 0.4181 - val_acc: 0.8703
+Epoch 4/5
+31688/31688 [==============================] - 22s 707us/step - loss: 0.3219 - acc: 0.8912 - val_loss: 0.3281 - val_acc: 0.9065
+Epoch 5/5
+31688/31688 [==============================] - 22s 709us/step - loss: 0.2445 - acc: 0.9154 - val_loss: 0.1790 - val_acc: 0.9431
+
+*******************************************************************************************************************************
+
+Misma red
+
+batch_size=192
+epochs=5
+
+Train on 31688 samples, validate on 5328 samples
+Epoch 1/5
+31688/31688 [==============================] - 24s 759us/step - loss: 2.6031 - acc: 0.3104 - val_loss: 0.8535 - val_acc: 0.8352
+Epoch 2/5
+31688/31688 [==============================] - 23s 728us/step - loss: 0.6496 - acc: 0.7892 - val_loss: 0.3692 - val_acc: 0.8926
+Epoch 3/5
+31688/31688 [==============================] - 23s 729us/step - loss: 0.3217 - acc: 0.8914 - val_loss: 0.2135 - val_acc: 0.9354
+Epoch 4/5
+31688/31688 [==============================] - 23s 731us/step - loss: 0.2095 - acc: 0.9284 - val_loss: 0.2057 - val_acc: 0.9413
+Epoch 5/5
+31688/31688 [==============================] - 23s 729us/step - loss: 0.1773 - acc: 0.9383 - val_loss: 0.1418 - val_acc: 0.9514
+
+*******************************************************************************************************************************
+
+cnn_model = Sequential([
+    Convolution2D(10, (4, 4), activation='relu', input_shape=(PICTURE_SIZE, PICTURE_SIZE, len(CHANNELS)),),
+    Dropout(0.20),
+    
+    MaxPooling2D(pool_size=(2, 2)),
+            
+    Convolution2D(10, (4, 4), activation='relu'),
+    Dropout(0.20),
+    
+    MaxPooling2D(pool_size=(2, 2)),
+        
+    Convolution2D(10, (4, 4), activation='relu'),
+    Dropout(0.20),
+    
+    Flatten(),
+    
+    #Dense(100, activation='relu'),
+    #Dropout(0.20),
+    
+    Dense(100, activation='relu'),
+    Dropout(0.20),
+    
+    Dense(len(FRUITS), activation='softmax'),
+])
+
+epochs=5
+batch_size=192
+
+Train on 31688 samples, validate on 5328 samples
+Epoch 1/5
+31688/31688 [==============================] - 21s 673us/step - loss: 2.2346 - acc: 0.4027 - val_loss: 0.7482 - val_acc: 0.8504
+Epoch 2/5
+31688/31688 [==============================] - 20s 629us/step - loss: 0.5086 - acc: 0.8367 - val_loss: 0.4356 - val_acc: 0.8806
+Epoch 3/5
+31688/31688 [==============================] - 20s 623us/step - loss: 0.2567 - acc: 0.9149 - val_loss: 0.2630 - val_acc: 0.9176
+Epoch 4/5
+31688/31688 [==============================] - 20s 622us/step - loss: 0.1664 - acc: 0.9446 - val_loss: 0.2153 - val_acc: 0.9274
+Epoch 5/5
+31688/31688 [==============================] - 20s 624us/step - loss: 0.1175 - acc: 0.9576 - val_loss: 0.1515 - val_acc: 0.9450
+
+*******************************************************************************************************************************
+
+    Convolution2D(16, (4, 4), activation='relu', input_shape=(PICTURE_SIZE, PICTURE_SIZE, len(CHANNELS)),),
+    Dropout(0.20),
+    
+    MaxPooling2D(pool_size=(2, 2)),
+            
+    Convolution2D(8, (4, 4), activation='relu'),
+    Dropout(0.20),
+    
+    MaxPooling2D(pool_size=(2, 2)),
+        
+    Convolution2D(4, (4, 4), activation='relu'),
+    Dropout(0.20),
+    
+    Flatten(),
+    
+    Dense(200, activation='relu'),
+    #Dropout(0.20),
+    
+    Dense(100, activation='relu'),
+    #Dropout(0.20),
+    
+    Dense(len(FRUITS), activation='softmax'),
+
+*******************************************************************************************************************************
